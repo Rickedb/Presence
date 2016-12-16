@@ -1,0 +1,68 @@
+﻿@using Presence.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Escolha o Chat";
+}
+
+<h2>
+    Chats disponíveis
+    @if (Model.Admin)
+    {
+        <div class="pull-right">
+            <a href="/Chat/CreateChat" class="btn btn-primary"><span class='glyphicon glyphicon-plus'></span> </a>
+        </div>
+    }
+</h2>
+
+<hr />
+<br />
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
+        <ul class="nav nav-pills nav-stacked" id="chatList"></ul>
+
+    </div>
+</div>
+@section scripts
+{
+    <!-- SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <!-- SignalR hub script gerado automaticamente pelo serviço -->
+    <script src="http://192.168.0.56:8080/signalr/hubs"></script>
+    <!-- Conexão com SignalR e Atualização de Mensagens -->
+    <script type="text/javascript">
+        $(function () {
+            // Definindo a URL onde o serviço está rodando
+            $.connection.hub.url = "http://192.168.0.56:8080/signalr";
+
+            // Conectando no Hub
+            var chat = $.connection.chatBroadcastHub;
+
+            // Recebendo chats do Hub
+            chat.client.getAvailableChats = function (chats) {
+                $("#chatList").html("");
+                jQuery.each(chats, function (index, val) {
+                    $('#chatList').append('<li role="presentation"><a href="../Chat/Index?chatId=' + val.ID + '">' + val.Name + ' - Criado Por: ' + val.CreatorUsername + '</a></li>');
+                });
+                if($("#chatList").html() == "")
+                    $('#chatList').append('<li role="presentation"><a href="#">Nenhum chat ativo no momento...</a></li>');
+            };
+
+            function requestChats() {
+                chat.server.refreshChats();
+            }
+
+            // Iniciando a conexão ao carregar a página
+            $.connection.hub.start().done(function () {
+                requestChats();
+                setInterval(requestChats, 10000);
+            });
+
+            $.connection.hub.disconnected(function () {
+                setTimeout(function () {
+                    $.connection.hub.start();
+                }, 5000); // Re-start connection after 5 seconds
+            });
+        });
+    </script>
+}
+

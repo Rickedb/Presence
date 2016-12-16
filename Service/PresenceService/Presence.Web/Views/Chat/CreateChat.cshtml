@@ -1,0 +1,50 @@
+﻿@model Presence.Web.Models.ChatViewModel
+
+@{
+    ViewBag.Title = "CreateChat";
+}
+
+<h2>
+    <a href="javascript:history.go(-1)" class="btn btn-default"><span class='glyphicon glyphicon-arrow-left'></span> </a>
+    Criar Chat
+</h2>
+
+@using (Html.BeginForm("Create", "Chat", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="display:none">
+            @Html.LabelFor(model => model.CreatorUsername, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreatorUsername, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                @Html.ValidationMessageFor(model => model.CreatorUsername, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @required = "required", @maxlength = "30" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control", @min = "2", @max = "15", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br class="visible-lg visible-md" />
+        <div class="form-group">
+
+            <div class="col-md-offset-4 col-md-4">
+                <input type="submit" value="Criar Chat" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

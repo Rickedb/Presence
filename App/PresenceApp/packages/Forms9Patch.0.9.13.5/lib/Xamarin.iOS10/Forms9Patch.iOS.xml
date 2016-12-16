@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Forms9Patch.iOS</name>
+    </assembly>
+    <members>
+        <member name="T:Forms9Patch.iOS.ImageRenderer">
+             <summary>
+             Forms9Patch Image renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.ImageRenderer.OnElementChanged(Xamarin.Forms.Platform.iOS.ElementChangedEventArgs{Forms9Patch.Image})">
+             <summary>
+             Raises the element changed event.
+             </summary>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.ImageRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Raises the element property changed event.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.ImageRenderer.Draw(CoreGraphics.CGRect)">
+             <summary>
+             Draw the specified rect.
+             </summary>
+             <param name="rect">Rect.</param>
+            </member>
+        <member name="F:Forms9Patch.iOS.ImageRenderer.isDisposed">
+             <summary>
+             The is disposed.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.ImageRenderer.Dispose(System.Boolean)">
+             <summary>
+             Dispose the specified disposing.
+             </summary>
+             <param name="disposing">If set to <c>true</c> disposing.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.Settings">
+             <summary>
+             Forms9Patch Settings.
+             </summary>
+            </member>
+        <member name="P:Forms9Patch.iOS.Settings.IsLicensed">
+             <summary>
+             Gets a value indicating whether this instance is licensed.
+             </summary>
+             <value>true</value>
+             <c>false</c>
+            </member>
+        <member name="P:Forms9Patch.iOS.Settings.LicenseKey">
+             <summary>
+             Sets the Forms9Patch license key.
+             </summary>
+             <value>The license key.</value>
+            </member>
+        <member name="T:Forms9Patch.iOS.FrameRenderer">
+             <summary>
+             Forms9Patch Frame renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.ImageExtensions">
+             <summary>
+             Image extensions.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.ImageExtensions.ToUIViewContentMode(Forms9Patch.Fill)">
+             <summary>
+             Transforms Forms9Patch.Fill to UIViewContentMode.
+             </summary>
+             <returns>UIViewContentMode</returns>
+             <param name="aspect">Aspect.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.ContentViewRenderer">
+             <summary>
+             Forms9Patch Content view renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.StackLayoutRenderer">
+             <summary>
+             Forms9Patch Stack layout renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.ImageViewManager.BackgroundImageRenderedHandler">
+             <summary>
+             Background image rendered handler.
+             </summary>
+             <value>
+             hasImage: was there an image to render?
+             </value>
+            </member>
+        <member name="E:Forms9Patch.iOS.ImageViewManager.LayoutComplete">
+             <summary>
+             Attempt to render a background image completed.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.LayoutRenderer`1">
+             <summary>
+             Forms9Patch Layout renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.LayoutRenderer`1.OnElementChanged(Xamarin.Forms.Platform.iOS.ElementChangedEventArgs{`0})">
+             <summary>
+             Raises the element changed event.
+             </summary>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.LayoutRenderer`1.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Raises the element property changed event.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.LayoutRenderer`1.Draw(CoreGraphics.CGRect)">
+             <summary>
+             Draw the specified rect.
+             </summary>
+             <param name="rect">Rect.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.RelativeLayoutRenderer">
+             <summary>
+             Forms9Patch Relative layout renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.GridRenderer">
+             <summary>
+             Forms9Patch Grid renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.AbsoluteLayoutRenderer">
+             <summary>
+             Forms9Patch Absolute layout renderer.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.BubbleLayoutRenderer">
+             <summary>
+             FormsPopups BubbleLayout renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.BubbleLayoutRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Raises the element property changed event.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.BubbleLayoutRenderer.Draw(CoreGraphics.CGRect)">
+             <summary>
+             Draw in the specified rect.
+             </summary>
+             <param name="rect">Rect.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.PopupBaseRenderer">
+             <summary>
+             Popup base renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.PopupBaseRenderer.OnElementChanged(Xamarin.Forms.Platform.iOS.ElementChangedEventArgs{Forms9Patch.PopupBase})">
+             <summary>
+             Raises the element changed event.
+             </summary>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.PopupBaseRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Raises the element property changed event.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.DescendentBounds">
+             <summary>
+             Descendent bounds.
+             </summary>
+            </member>
+        <member name="T:Forms9Patch.iOS.PopupEffect">
+             <summary>
+             Popup effect.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.PopupEffect.OnAttached">
+             <summary>
+             To be added.
+             </summary>
+             <remarks>To be added.</remarks>
+            </member>
+        <member name="M:Forms9Patch.iOS.PopupEffect.OnDetached">
+             <summary>
+             To be added.
+             </summary>
+             <remarks>To be added.</remarks>
+            </member>
+        <member name="M:Forms9Patch.iOS.PopupEffect.OnElementPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+             <param name="args">To be added.</param>
+             <summary>
+             To be added.
+             </summary>
+             <remarks>To be added.</remarks>
+            </member>
+        <member name="T:Forms9Patch.iOS.PageRendererExtensions">
+             <summary>
+             Page renderer extensions.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.PageRendererExtensions.PageRendererExtensionOnElementChanged(Xamarin.Forms.Platform.iOS.IVisualElementRenderer,Xamarin.Forms.Platform.iOS.VisualElementChangedEventArgs)">
+             <summary>
+             Pages the renderer extension on element changed.
+             </summary>
+             <param name="renderer">Renderer.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.PageRendererExtensions.PageRendererExtensionDispose(Xamarin.Forms.Platform.iOS.IVisualElementRenderer,System.Boolean)">
+             <summary>
+             Pages the renderer extension dispose.
+             </summary>
+             <param name="renderer">Renderer.</param>
+             <param name="disposing">If set to <c>true</c> disposing.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.LabelRenderer">
+             <summary>
+             Forms9Patch iOS Label renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.LabelRenderer.GetDesiredSize(System.Double,System.Double)">
+             <summary>
+             Gets the size of the desired.
+             </summary>
+             <returns>The desired size.</returns>
+             <param name="widthConstraint">Width constraint.</param>
+             <param name="heightConstraint">Height constraint.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.LabelRenderer.LayoutSubviews">
+             <summary>
+             Layouts the subviews.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.LabelRenderer.OnElementChanged(Xamarin.Forms.Platform.iOS.ElementChangedEventArgs{Forms9Patch.Label})">
+             <summary>
+             Raises the element changed event.
+             </summary>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.LabelRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Raises the element property changed event.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.LabelRenderer.SetBackgroundColor(Xamarin.Forms.Color)">
+             <summary>
+             Sets the color of the background.
+             </summary>
+             <param name="color">Color.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.CustomFontEffect">
+             <summary>
+             Custom font effect.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.CustomFontEffect.OnAttached">
+             <summary>
+             Called when the effect is attached.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.CustomFontEffect.OnDetached">
+             <summary>
+             Called when the effect is detached
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.CustomFontEffect.OnElementPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+             <param name="args">To be added.</param>
+             <summary>
+             Called when a property is changed
+             </summary>
+             <remarks>To be added.</remarks>
+            </member>
+        <member name="T:Forms9Patch.iOS.ListViewRenderer">
+             <summary>
+             List view renderer.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.ListViewRenderer.OnElementChanged(Xamarin.Forms.Platform.iOS.ElementChangedEventArgs{Xamarin.Forms.ListView})">
+             <summary>
+             Ons the element changed.
+             </summary>
+             <param name="e">E.</param>
+            </member>
+        <member name="M:Forms9Patch.iOS.ListViewRenderer.OnElementPropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+             <summary>
+             Ons the element property changed.
+             </summary>
+             <param name="sender">Sender.</param>
+             <param name="e">E.</param>
+            </member>
+        <member name="T:Forms9Patch.iOS.ListItemLocationService">
+             <summary>
+             Descendent bounds.
+             </summary>
+            </member>
+        <member name="M:Forms9Patch.iOS.ListItemLocationService.DragEventArgsForItemAtPoint(Forms9Patch.ListView,Xamarin.Forms.Point)">
+             <summary>
+             Drags the event arguments for item at point.
+             </summary>
+             <returns>The event arguments for item at point.</returns>
+             <param name="listView">List view.</param>
+             <param name="p">P.</param>
+            </member>
+        <member name="T:Bc3.Forms.iOS.ListViewExtensionService_iOS">
+             <summary>
+             List view extension service  i os.
+             </summary>
+            </member>
+        <member name="M:Bc3.Forms.iOS.ListViewExtensionService_iOS.#ctor">
+             <summary>
+             Initializes a new instance of the <see cref="T:Bc3.Forms.iOS.ListViewExtensionService_iOS" /> class.
+             </summary>
+            </member>
+        <member name="M:Bc3.Forms.iOS.ListViewExtensionService_iOS.IndexPathAtCenter(Xamarin.Forms.ListView)">
+             <summary>
+             Indexs the path at center.
+             </summary>
+             <returns>The path at center.</returns>
+             <param name="listView">List view.</param>
+            </member>
+        <member name="M:Bc3.Forms.iOS.ListViewExtensionService_iOS.SelectedIndexPath(Xamarin.Forms.ListView)">
+             <summary>
+             Selecteds the index path.
+             </summary>
+             <returns>The index path.</returns>
+             <param name="listView">List view.</param>
+            </member>
+        <member name="M:Bc3.Forms.iOS.ListViewExtensionService_iOS.IndexPathAtPoint(Xamarin.Forms.ListView,Xamarin.Forms.Point)">
+             <summary>
+             Indexs the path at point.
+             </summary>
+             <returns>The path at point.</returns>
+             <param name="listView">List view.</param>
+             <param name="p">P.</param>
+            </member>
+        <member name="M:Bc3.Forms.iOS.ListViewExtensionService_iOS.IndexPathsOfVisibleCells(Xamarin.Forms.ListView)">
+             <summary>
+             Indexs the paths of visible cells.
+             </summary>
+             <returns>The paths of visible cells.</returns>
+             <param name="listView">List view.</param>
+            </member>
+    </members>
+</doc>

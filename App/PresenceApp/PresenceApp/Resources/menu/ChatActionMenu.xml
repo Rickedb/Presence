@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:local="http://schemas.android.com/apk/res-auto">
+  <item
+       android:id="@+id/menuOnlineUsers"
+       android:icon="@drawable/onlineUsers"
+       local:showAsAction="ifRoom"
+       android:title="OnlineUsers" />
+  <item
+       android:id="@+id/menuCloseChat"
+       android:icon="@drawable/x"
+       local:showAsAction="ifRoom"
+       android:title="CloseChat" />
+</menu>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Presence</string>
+  <string name="LoginActivityTitle">I Can Feel Your Presence!</string>
+  <string name="MainActivityTitle">Grupos Ativos</string>
+  <string name="RefreshOnlineUsersTitle">Usuários Online</string>
+  <string name="CreateChatTitle">Criar Novo Chat</string>
+  <string name="signalR_url">http://192.168.0.56:8080</string>
+</resources>

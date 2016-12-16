@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+              android:id="@+id/llLogin">
+  <ImageView android:src="@drawable/icon"
+             android:layout_marginTop="24dp"
+             android:layout_width="96dp"
+             android:layout_height="96dp"
+             android:id="@+id/imgvLogin"
+             android:layout_marginBottom="24dp"
+             android:layout_gravity="center_horizontal" />
+
+  <android.support.design.widget.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp">
+    <EditText android:id="@+id/txtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textCapWords"
+        android:hint="Nome de Usuário" />
+  </android.support.design.widget.TextInputLayout>
+
+  <android.support.design.widget.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp">
+    <EditText android:id="@+id/txtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Senha"/>
+  </android.support.design.widget.TextInputLayout>
+
+  <android.support.v7.widget.AppCompatCheckBox
+    android:id="@+id/chkAdministrator"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:text="Administrador?" />
+
+  <android.support.design.widget.TextInputLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_marginTop="8dp"
+     android:layout_marginBottom="8dp">
+    <EditText android:id="@+id/txtIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="IP Do Servidor" />
+  </android.support.design.widget.TextInputLayout>
+  
+  <android.support.v7.widget.AppCompatButton
+      android:id="@+id/btnLogin"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:layout_marginBottom="24dp"
+      android:padding="12dp"
+      android:text="Entrar"/>
+</LinearLayout>

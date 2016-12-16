@@ -1,0 +1,142 @@
+﻿@using Presence.Web.Models
+@model ChatViewModel
+@{
+    ViewBag.Title = "Chat";
+}
+<div class="container">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <a href="#" class="btn btn-default btnClose" ><span class='glyphicon glyphicon-remove'></span> </a>
+        @Model.Name
+        </h1>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-9">
+        <div class="chat-panel panel panel-default">
+            <div class="panel-heading">Participe do Chat</div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <ul id="chatMessages" style="list-style-type: none;"></ul>
+            </div>
+            <!-- /.panel-body -->
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input id="text-mensagem" type="text" class="form-control input-sm" placeholder="Escreva aqui sua mensagem...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-warning btn-sm" id="enviarMensagem">Enviar</button>
+                    </span>
+                </div>
+            </div>
+            <!-- /.panel-footer -->
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="chat-panel panel panel-default">
+            <div class="panel-heading">Usuários Connectados</div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <ul id="connectedUsers" style="list-style-type: none;"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+
+    <!-- SignalR library. -->
+    <script src="~/Scripts/jquery.signalR-2.2.0.js"></script>
+    <!-- SignalR hub script gerado automaticamente pelo serviço -->
+    <script src="http://192.168.0.56:8080/signalr/hubs"></script>
+    <!-- Conexão com SignalR e Atualização de Mensagens -->
+    <script type="text/javascript">
+        $(function() {
+            // Definindo a URL onde o serviço está rodando
+            $.connection.hub.url = "http://192.168.0.56:8080/signalr";
+
+            // Conectando no Hub
+            var chat = $.connection.chatBroadcastHub;
+            var user = "@Model.User.Username";
+            var admin = "@Model.User.Admin";
+            var currentChat = @Model.ID;
+
+            // Recebendo chat do Hub
+            chat.client.sendChatMessage = function(chatId, nome, msg) {
+                if(chatId == currentChat)
+                    $('#chatMessages').append('<li class="left clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">' + nome + '</strong></div><p>' + msg + '</p></div></li>');
+                scrollChat();
+            };
+
+            // recebeu kick
+            chat.client.kickedUser = function(chatId, nome) {
+                if(chatId == currentChat && nome == user)
+                    window.location.href = "../Chat/ChooseChat";
+                    
+            };
+
+            //Refresh da lista de usuários
+            chat.client.refreshOnlineUsersList = function(users)
+            {
+                $("#connectedUsers").html("");
+                jQuery.each(users, function (index, val) {
+                    var button = "";
+                    if(admin === "True")
+                    {
+                        button = '&nbsp;&nbsp;<button class="btn btn-default btnKick" data-id=' + val.Username + '" style="height:18px;width:20px; padding:0"><span class="glyphicon glyphicon-remove" style="width:13px"></span></button>';
+                    }
+                    $('#connectedUsers').append('<li role="presentation">' + val.Username + button + '</li>');
+                });
+            };
+
+            // Recebendo ultimas mensagens
+            chat.client.lastMessages = function(messages) {
+                jQuery.each(messages, function (index, val) {
+                    $('#chatMessages').append('<li class="left clearfix"><div class="chat-body clearfix"><div class="header"><strong class="primary-font">' + val.UsersByChat.Username + '</strong></div><p>' + val.Message + '</p></div></li>');
+                });
+                scrollChat();
+            };
+
+
+            function scrollChat() {
+                $('#chatMessages').animate({ scrollTop: $('#chatMessages').prop("scrollHeight")}, 1000)
+            }
+
+            function requestOnlineUsers() {
+                chat.server.refreshOnlineUsers(currentChat);
+            }
+
+            function requestLastFiftyMessages() {
+                chat.server.getLastMessages(currentChat);
+            }
+
+            $('.btnClose').click(function() {
+                if(confirm("Deseja mesmo fechar este chat?"))
+                    chat.server.closeChat(currentChat);
+            });
+
+            // Iniciando a conexão ao carregar a página
+            $.connection.hub.start().done(function () {
+                chat.server.enterChat(currentChat, user);
+                requestOnlineUsers();
+                requestLastFiftyMessages();
+                setInterval(requestOnlineUsers, 300000);
+
+                // Evento click do botão do chat
+                $('#enviarMensagem').click(function() {
+                    if ($('#text-mensagem').val().length === 0)
+                        return false;
+
+                    // Enviando mensagens para o servidor
+                    chat.server.sendMessage(currentChat, user, $('#text-mensagem').val());
+                    $('#text-mensagem').val('').focus();
+                });
+            });
+
+            $(window).bind('beforeunload', function(){
+                chat.server.leaveChat(currentChat, user);
+                console.log('teste');
+            });
+
+        });
+    </script>
+}
